@@ -1,6 +1,6 @@
 {
   "name": "vuepress-plugin-sidebar",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Generate sidebar menu for VuePress",
   "main": "index.js",
   "scripts": {
