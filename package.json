@@ -10,7 +10,11 @@
     "type": "git",
     "url": "git+https://github.com/tacck/vuepress-plugin-sidebar.git"
   },
-  "keywords": [],
+  "keywords": [
+    "vuepress",
+    "vuepress-plugin",
+    "sidebar"
+  ],
   "author": {
     "name" : "Kihara, Takuya",
     "email" : "gray@tacck.net",
