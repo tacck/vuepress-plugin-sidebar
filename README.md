@@ -20,7 +20,9 @@ module.exports = {
 }
 ```
 
-### Option: Add static links after generated menu
+### Options
+
+#### Add static links after generated menu
 
 ``` .vuepress/config.js
 module.exports = {
@@ -30,6 +32,24 @@ module.exports = {
         postItems: [
           ['https://www.tacck.net/', 'Tacck.NET']
         ]
+      }
+    ]
+  ]
+}
+```
+
+#### Grouping menu
+
+``` .vuepress/config.js
+module.exports = {
+  plugins: [
+    [
+      'sidebar', {
+        grouping: true,
+        groupOptions: {
+          collapsable: true,
+          sidebarDepth: 2,
+        },
       }
     ]
   ]
