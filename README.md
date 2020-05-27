@@ -64,7 +64,7 @@ groupTitle: Group Title 01
 ---
 ```
 
-Please see [example](https://github.com/tacck/vuepress-plugin-sidebar/example/).
+Please see [example](https://github.com/tacck/vuepress-plugin-sidebar/tree/master/example/).
 
 ## License
 
