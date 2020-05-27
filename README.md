@@ -56,6 +56,16 @@ module.exports = {
 }
 ```
 
+If you want to set group title, please set frontmatter `groupTitle` on each directories' README.md.
+
+```
+---
+groupTitle: Group Title 01
+---
+```
+
+Please see [example](https://github.com/tacck/vuepress-plugin-sidebar/example/).
+
 ## License
 
 [MIT License](./LICENSE)
