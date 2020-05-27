@@ -20,7 +20,9 @@ module.exports = {
 }
 ```
 
-### Option: Add static links after generated menu
+### Options
+
+#### Add static links after generated menu
 
 ``` .vuepress/config.js
 module.exports = {
@@ -35,6 +37,34 @@ module.exports = {
   ]
 }
 ```
+
+#### Grouping menu
+
+``` .vuepress/config.js
+module.exports = {
+  plugins: [
+    [
+      'sidebar', {
+        grouping: true,
+        groupOptions: {
+          collapsable: true,
+          sidebarDepth: 2,
+        },
+      }
+    ]
+  ]
+}
+```
+
+If you want to set group title, please set frontmatter `groupTitle` on each directories' README.md.
+
+```
+---
+groupTitle: Group Title 01
+---
+```
+
+Please see [example](https://github.com/tacck/vuepress-plugin-sidebar/example/).
 
 ## License
 
