@@ -17,8 +17,8 @@ export default ({ Vue, options, router, siteData }) => {
     }
   }
 
-  // regularPath を使うと、ページトップの `#` で宣言した内容をタイトルとして使ってくれる。
-  // If isGrouping is true and use frontmatter 'groupTitle', set title to 'groupTitle'.
+  // Basically, get the title from page.regularPath.
+  // When isGrouping is true and frontmatter 'groupTitle' is used, set title from 'groupTitle'.
   for (const page of siteData.pages) {
     const title =
       isGrouping
@@ -29,7 +29,6 @@ export default ({ Vue, options, router, siteData }) => {
     tempSidebar.push({ path: page.regularPath, title: title })
   }
 
-  // regularPath を昇順にソート
   tempSidebar.sort((page1, page2) => {
     return page1.path.localeCompare(page2.path)
   })
@@ -40,7 +39,7 @@ export default ({ Vue, options, router, siteData }) => {
     sidebar = flat(tempSidebar)
   }
 
-  // postItems
+  // set postItems
   Array.prototype.push.apply(sidebar, postItems)
 
   siteData.themeConfig.sidebar = sidebar
@@ -49,7 +48,7 @@ export default ({ Vue, options, router, siteData }) => {
 function flat(baseItems) {
   let sidebar = []
 
-  for (const item in baseItems) {
+  for (const item of baseItems) {
     sidebar.push(item.path)
   }
 
@@ -60,20 +59,20 @@ function grouping(baseItems, groupOptions) {
   let sidebar = []
   let groupedItems = []
 
-  // ディレクトリの第一階層を使ってグループ化
+  // Group by first level of directory.
   for (const item of baseItems) {
     const slashPosition = item.path.lastIndexOf('/')
-    // グループのトップページ(README.md)の場合の対応
+    // case of README.md
     if (slashPosition === item.path.length - 1) {
-      // グループの作成
+      // create a group
       const groupName = item.path.substring(0, slashPosition === 0 ? 1 : slashPosition)
-      // グループタイトルをページタイトルから設定
+      // set group title
       const groupTitle = item.title
       groupedItems[groupName] = { title: groupTitle, items: [] }
     }
   }
 
-  // グループへアイテム登録
+  // Add items to the groups.
   for (const item of baseItems) {
     const slashPosition = item.path.lastIndexOf('/')
     const groupName = item.path.substring(0, slashPosition === 0 ? 1 : slashPosition)
@@ -81,7 +80,7 @@ function grouping(baseItems, groupOptions) {
     groupedItems[groupName].items.push(item.path)
   }
 
-  // sidebarへ反映
+  // Set sidebar
   for (const groupName in groupedItems) {
     const item = {
       title: groupedItems[groupName].title,
@@ -99,6 +98,5 @@ function grouping(baseItems, groupOptions) {
     sidebar.push(item)
   }
 
-  console.log(sidebar)
   return sidebar
 }
