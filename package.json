@@ -1,6 +1,6 @@
 {
   "name": "vuepress-plugin-sidebar",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Generate sidebar menu for VuePress",
   "main": "index.js",
   "scripts": {
@@ -16,9 +16,9 @@
     "sidebar"
   ],
   "author": {
-    "name" : "Kihara, Takuya",
-    "email" : "gray@tacck.net",
-    "url" : "https://www.tacck.net/"
+    "name": "Kihara, Takuya",
+    "email": "gray@tacck.net",
+    "url": "https://www.tacck.net/"
   },
   "license": "MIT",
   "bugs": {
